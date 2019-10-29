@@ -9,11 +9,19 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.grey[100],
       body: SafeArea(
         child: ListView(
-          children: [TodayCounter()],
+          children: [
+            TodayCounter(),
+          ],
           padding: EdgeInsets.all(20),
         ),
       ),
       appBar: null,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.pinkAccent,
+        foregroundColor: Colors.white,
+      ),
     );
   }
 }
@@ -24,12 +32,17 @@ class TodayCounter extends StatelessWidget {
     return FancyCard(
       padding: EdgeInsets.all(20),
       borderRadius: 15.0,
-      gradient: Gradients.hotLinear,
+      gradient: Gradients.blush,
+      boxShadow: BoxShadow(
+        color: Colors.red[200],
+        blurRadius: 5.0,
+        offset: Offset(1, 1),
+      ),
       child: Row(children: [
         Icon(
           Icons.sentiment_very_satisfied,
           size: 50,
-          color: Colors.white,
+          color: Colors.white.withAlpha(200),
         ),
         SizedBox(width: 20),
         Expanded(
