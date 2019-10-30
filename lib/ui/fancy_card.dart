@@ -5,17 +5,21 @@ import 'package:flutter/material.dart';
 /// shadows, padding, ...
 class FancyCard extends StatelessWidget {
   final Widget child;
+  final EdgeInsets margin;
   final EdgeInsets padding;
   final double borderRadius;
+  final Color backgroundColor;
   final Gradient gradient;
   final BoxShadow boxShadow;
 
   FancyCard({
     @required this.child,
     @required this.padding,
+    this.margin,
     @required this.borderRadius,
-    @required this.gradient,
-    @required this.boxShadow,
+    this.backgroundColor,
+    this.gradient,
+    this.boxShadow,
   });
 
   Widget build(BuildContext context) {
@@ -26,7 +30,9 @@ class FancyCard extends StatelessWidget {
         ],
         borderRadius: BorderRadius.circular(this.borderRadius),
         gradient: this.gradient,
+        color: this.backgroundColor,
       ),
+      margin: this.margin,
       child: Padding(
         padding: this.padding,
         child: this.child,

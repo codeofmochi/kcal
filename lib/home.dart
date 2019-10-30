@@ -6,11 +6,12 @@ import 'ui/fancy_card.dart';
 class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: ListView(
           children: [
             TodayCounter(),
+            TodayStats(),
           ],
           padding: EdgeInsets.all(20),
         ),
@@ -19,8 +20,9 @@ class HomePage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: Icon(Icons.add),
-        backgroundColor: Colors.pinkAccent,
+        backgroundColor: Colors.pink,
         foregroundColor: Colors.white,
+        elevation: 5,
       ),
     );
   }
@@ -31,7 +33,8 @@ class TodayCounter extends StatelessWidget {
   Widget build(BuildContext context) {
     return FancyCard(
       padding: EdgeInsets.all(20),
-      borderRadius: 15.0,
+      margin: EdgeInsets.only(bottom: 15),
+      borderRadius: 15,
       gradient: Gradients.blush,
       boxShadow: BoxShadow(
         color: Colors.red[200],
@@ -66,6 +69,23 @@ class TodayCounter extends StatelessWidget {
           ),
         ),
       ]),
+    );
+  }
+}
+
+/// Food stats for the day
+class TodayStats extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return FancyCard(
+      padding: EdgeInsets.all(20),
+      borderRadius: 10,
+      child: Text("Hello"),
+      backgroundColor: Colors.white,
+      boxShadow: BoxShadow(
+        color: Colors.grey[400],
+        blurRadius: 3.0,
+        offset: Offset(1, 1),
+      ),
     );
   }
 }
