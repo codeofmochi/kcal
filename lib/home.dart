@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
 import 'ui/fancy_card.dart';
 
@@ -79,7 +80,12 @@ class TodayStats extends StatelessWidget {
     return FancyCard(
       padding: EdgeInsets.all(20),
       borderRadius: 10,
-      child: Text("Hello"),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Text("Total food mass today: 218g"),
+        ],
+      ),
       backgroundColor: Colors.white,
       boxShadow: BoxShadow(
         color: Colors.grey[400],
