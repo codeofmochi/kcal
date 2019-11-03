@@ -2,6 +2,8 @@
 
 An open-source Flutter app to track your daily calories.
 
+![](docs/homescreen.jpg)
+
 ## License
 
 This software is licensed under the GNU GENERAL PUBLIC LICENSE Version 3.
