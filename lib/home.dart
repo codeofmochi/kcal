@@ -1,3 +1,4 @@
+import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_widgets/gradient_widgets.dart';
@@ -13,6 +14,7 @@ class HomePage extends StatelessWidget {
           children: [
             TodayCounter(),
             TodayStats(),
+            KcalGraph(),
           ],
           padding: EdgeInsets.all(20),
         ),
@@ -79,6 +81,7 @@ class TodayStats extends StatelessWidget {
   Widget build(BuildContext context) {
     return FancyCard(
       padding: const EdgeInsets.all(20),
+      margin: EdgeInsets.only(bottom: 15),
       borderRadius: 10,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -197,8 +200,7 @@ class TodayStats extends StatelessWidget {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(right: 10),
-                    child: Icon(FontAwesomeIcons.candyCane,
-                        color: Colors.pink),
+                    child: Icon(FontAwesomeIcons.candyCane, color: Colors.pink),
                   ),
                   Text("Other"),
                   Expanded(child: Text("56g", textAlign: TextAlign.end)),
@@ -216,6 +218,79 @@ class TodayStats extends StatelessWidget {
           )
         ],
       ),
+      backgroundColor: Colors.white,
+      boxShadow: BoxShadow(
+        color: Colors.grey[400],
+        blurRadius: 3.0,
+        offset: Offset(1, 1),
+      ),
+    );
+  }
+}
+
+/// Calorie per day graph
+class KcalDay {
+  final DateTime day;
+  final int kcal;
+  KcalDay(this.day, this.kcal);
+}
+
+class KcalGraph extends StatelessWidget {
+  static final List<KcalDay> data = [
+    KcalDay(DateTime(2019, 10, 27), 1734),
+    KcalDay(DateTime(2019, 10, 28), 1935),
+    KcalDay(DateTime(2019, 10, 29), 1631),
+    KcalDay(DateTime(2019, 10, 30), 1598),
+    KcalDay(DateTime(2019, 10, 31), 1865),
+    KcalDay(DateTime(2019, 11, 1), 1635),
+    KcalDay(DateTime(2019, 11, 2), 1922),
+    KcalDay(DateTime(2019, 11, 3), 1689),
+  ];
+
+  final List<charts.Series<KcalDay, DateTime>> seriesList = [
+    charts.Series<KcalDay, DateTime>(
+      id: "Kcal per day",
+      colorFn: (_, __) => charts.MaterialPalette.deepOrange.shadeDefault,
+      domainFn: (KcalDay kd, _) => kd.day,
+      measureFn: (KcalDay kd, _) => kd.kcal,
+      data: data,
+    ),
+  ];
+
+  Widget build(BuildContext context) {
+    return FancyCard(
+      child: Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text("Last 30 days"),
+              Expanded(
+                child: Text(
+                  "1726 kcal avg",
+                  textAlign: TextAlign.end,
+                ),
+              )
+            ],
+          ),
+          Container(
+            height: 210,
+            child: ClipRect(
+              child: charts.TimeSeriesChart(
+                seriesList,
+                defaultRenderer: charts.LineRendererConfig(includeArea: true),
+                animate: true,
+                primaryMeasureAxis: charts.NumericAxisSpec(
+                  viewport: charts.NumericExtents(1400, 2000),
+                  tickProviderSpec:
+                      charts.BasicNumericTickProviderSpec(desiredTickCount: 20),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      borderRadius: 10,
+      padding: const EdgeInsets.all(20),
       backgroundColor: Colors.white,
       boxShadow: BoxShadow(
         color: Colors.grey[400],

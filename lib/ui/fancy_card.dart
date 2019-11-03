@@ -11,20 +11,22 @@ class FancyCard extends StatelessWidget {
   final Color backgroundColor;
   final Gradient gradient;
   final BoxShadow boxShadow;
+  final double height;
 
   FancyCard({
     @required this.child,
     @required this.padding,
-    this.margin,
     @required this.borderRadius,
+    this.boxShadow,
     this.backgroundColor,
     this.gradient,
-    this.boxShadow,
+    this.margin,
+    this.height,
   });
 
   Widget build(BuildContext context) {
     return Container(
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         boxShadow: [
           this.boxShadow,
         ],
@@ -37,6 +39,7 @@ class FancyCard extends StatelessWidget {
         padding: this.padding,
         child: this.child,
       ),
+      height: height,
     );
   }
 }
