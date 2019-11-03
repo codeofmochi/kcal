@@ -54,7 +54,7 @@ class TodayCounter extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Text(
-                "768",
+                "1367",
                 style: TextStyle(
                   fontSize: 40,
                   color: Colors.white,
@@ -78,12 +78,142 @@ class TodayCounter extends StatelessWidget {
 class TodayStats extends StatelessWidget {
   Widget build(BuildContext context) {
     return FancyCard(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       borderRadius: 10,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
-          Text("Total food mass today: 218g"),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Row(
+              children: <Widget>[
+                Expanded(child: Text("Total food mass today:")),
+                Text(
+                  "1567g",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(FontAwesomeIcons.seedling, color: Colors.green),
+                  ),
+                  Text("Vegetables"),
+                  Expanded(child: Text("371g", textAlign: TextAlign.end)),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  width: 1,
+                  color: Colors.grey[300],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child:
+                        Icon(FontAwesomeIcons.appleAlt, color: Colors.red[400]),
+                  ),
+                  Text("Fruits"),
+                  Expanded(child: Text("114g", textAlign: TextAlign.end)),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  width: 1,
+                  color: Colors.grey[300],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(FontAwesomeIcons.breadSlice,
+                        color: Colors.yellow[700]),
+                  ),
+                  Text("Starch"),
+                  Expanded(child: Text("546g", textAlign: TextAlign.end)),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  width: 1,
+                  color: Colors.grey[300],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(FontAwesomeIcons.drumstickBite,
+                        color: Colors.orange[700]),
+                  ),
+                  Text("Meat"),
+                  Expanded(child: Text("246g", textAlign: TextAlign.end)),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  width: 1,
+                  color: Colors.grey[300],
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Icon(FontAwesomeIcons.candyCane,
+                        color: Colors.pink),
+                  ),
+                  Text("Other"),
+                  Expanded(child: Text("56g", textAlign: TextAlign.end)),
+                ],
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  width: 1,
+                  color: Colors.grey[300],
+                ),
+              ),
+            ),
+          )
         ],
       ),
       backgroundColor: Colors.white,
