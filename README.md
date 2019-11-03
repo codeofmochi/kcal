@@ -2,7 +2,7 @@
 
 An open-source Flutter app to track your daily calories.
 
-![](docs/homescreen.jpg)
+<img src="docs/homescreen.jpg" width="350">
 
 ## License
 
