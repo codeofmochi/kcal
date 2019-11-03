@@ -11,6 +11,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   gradient_widgets: ^0.5.0
   font_awesome_flutter: ^8.5.0
+  charts_flutter: ^0.8.1
+  provider: ^3.1.0+1
 
 dev_dependencies:
   flutter_test:
